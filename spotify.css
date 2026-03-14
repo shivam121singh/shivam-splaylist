@@ -1,0 +1,328 @@
+*{
+    margin:0 ;
+    padding:0;
+    box-sizing: border-box;
+
+}
+html,body{
+    height:100%;
+    width:100%
+}
+
+
+.main{
+height:100vh;
+    width: 100vw;
+    display:flex;
+    height:100vh;
+    background-color:black;
+}
+.sidebar{
+    background-color:black;
+height:600px;
+    width:300px;
+    
+}
+.main-content{
+    background-color:#121212
+    ;
+flex:1;
+    height:100vh;
+
+overflow-y:auto;
+    padding-bottom:70px;
+
+}
+.music-player{
+    background-color:#121212;
+        position:fixed;
+
+    bottom:0;
+    height:70px;
+    width:100%;
+}
+.nav{
+    background-color:#121212;
+    width:98%;
+    height:200px;
+    color:white;
+    display:flex;
+    flex-direction:column;
+     line-height:2.5rem;
+     border-radius:1rem;
+ justify-content:center;
+ padding:1rem;
+ margin:5px;
+ margin-right:20000px;
+ position:sticky;
+ z-index:10;
+
+}
+.nav-option{
+    line-height:4rem;
+    font-size:25px;
+    margin-left:35px;
+}
+.nav-option a{
+    text-decoration:none ;
+    color:white;
+
+}
+.iconfont{
+    color:white;
+    display: flex;
+    align-items: center;  
+    gap: 10px;
+    padding:1rem;             
+
+}
+.iconfont img{
+width:2rem;
+height:2rem;
+}
+.iconfont p{
+    font-size:1.5rem;
+    display:flex;
+    flex-direction:row;
+}
+.plusicon{
+    color:white;
+    font-size:1rem;
+   position:relative;
+   left:70px;
+}
+.libhead{
+    display:flex;
+        align-items:center;
+ 
+}
+.firstcontentbox{
+    background-color:#121212;
+    border-radius:10px;
+    margin:5px;
+
+
+}
+.firstcontentbox  .content{
+    color:white;
+    padding:18px;
+}
+.firstcontentbox p{
+    color:white;
+    padding:5px;
+}
+.crplaylistbtn .btn{
+    width:170px;
+    border-radius:40px;
+    background-color:white;
+    margin-bottom:20px;
+    margin-left:20px;
+}
+
+.btn a{
+    text-decoration:none;
+    color:black;
+}
+
+.secondsubbox{
+    background-color:rgba(12 12 12);
+    height:100%;
+}
+.secondcontentbox{
+    background-color:#121212;
+    border-radius:10px;
+    margin:5px;
+}
+.secondcontentbox  .content{
+    color:white;
+    padding:18px;
+}
+.headnav{
+    display:flex;
+    background-color:rgb(12 ,12 ,12, 1);
+    justify-content:center;
+    justify-content:space-between;
+position :sticky;
+top:0;
+z-index: 10;
+    /* top: 0;
+    width: 100%;
+    z-index:10;
+background-color:black; */ 
+}
+.items{
+    display:flex;
+    padding-top:10px;
+    padding-bottom:10px; 
+    margin-right:3rem;
+}
+.button p{
+padding:5px;
+}
+.items button{
+    border-radius:5px;
+
+}
+.contact{
+    border-radius:50%;
+display:flex;
+}
+#btnn{
+    display:flex;
+    background-color:black;
+    padding:5px;
+ border-radius:30px;
+    margin-right:16px;
+    border:none;
+
+}
+.para{
+padding:4px;
+color:white;
+margin-top:5px;
+text-decoration:none
+}
+
+#download{
+padding:5px;
+color:white;
+display:flex;
+font-size:16px;
+margin-top:5px}
+
+.bars{
+    padding:10px;
+    display:flex;
+    justify-content:center;
+    margin-top:10px;
+}
+.contact i{
+     font-size:25px;
+color:white;
+    padding:10px;
+    margin-top:0.7rem;
+}
+ .bars #img{
+height:30px;
+width:30px;
+}
+.card .card-img-top{
+    height :200px;
+    padding:1rem;
+    border-radius:2rem;
+}
+
+   
+    .card{
+    background-color: rgba(12, 12, 12, 1) !important;
+    margin-left:1.5rem;
+    margin-top:1rem;
+ 
+}
+
+.card-body h5,
+.card-body p{
+    color: white;
+}
+.heading{
+    margin-top:2rem;
+    color:white;
+    margin-left:1.4rem
+}
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+}
+.adcards{
+    display:flex;
+}
+.daylight{
+display:flex;
+width:500px;
+}
+.img{
+    padding:7px;
+
+width:70px;
+height:70px;
+
+}
+.daylight img{
+    height:100%;
+    width:100%;
+    object-fit:cover;
+    border-radius:6px;
+
+}
+.daylight h5,p1{
+    color:white ;
+}
+.description{
+ margin-top:10px;
+ margin-left:5px;
+}
+.ic{
+    display:flex;
+margin-left:10px;
+margin-top:10px;
+}
+.ic i{
+    margin:10px;
+    font-size:1.4rem;
+}
+.musiccontainer{
+    height:100%;
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.playicon{
+    height:70px;
+    width:500px;
+    /* background-color:blue; */
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    margin-right:200px;
+}
+
+.playicon a {
+
+height:1.4rem;
+width:1.4rem;}
+.playbutton{
+    height:60px;
+    width:60px;
+    background-color:rgb(59, 155, 59);
+    position:relative;
+    left:130px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.playbutton img{
+
+    height: 100%;
+    width:100%;
+    border-radius:50%;
+    object-fit:cover;
+}
+.picons{
+   height:30px;
+    width:30px;
+    margin:7px;
+}
+.playchange{
+    height:30px;
+    width:30px;
+    margin:7px;
+    border-radius:50%;
+}
+#range{
+    width:250px;
+    margin-right:20px;
+}
