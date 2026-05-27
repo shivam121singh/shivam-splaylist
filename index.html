@@ -198,6 +198,110 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script >
+    // Target UI controller bindings
+const songCards = document.querySelectorAll(".play-item-icon");
+const masterPlayBtn = document.getElementById("masterPlayBtn");
+const audioRange = document.getElementById("range");
+const volumeControl = document.getElementById("volumeControl");
+
+const botthead = document.querySelector(".description .hdd");
+const bottimg = document.querySelector(".bottimg");
+const bottpara = document.querySelector(".description .bottompara");
+const currentTimeText = document.getElementById("currentTime");
+const totalDurationText = document.getElementById("totalDuration");
+
+let audio = new Audio();
+let isPlaying = false;
+let currentActiveIcon = null;
+
+// Format running time outputs safely
+function formatTime(seconds) {
+  if (isNaN(seconds)) return "0:00";
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+function playTrack(iconElement) {
+  const srcSong = iconElement.getAttribute("data-song");
+  
+  // Swap icons back gracefully over any previously active tracks
+  if (currentActiveIcon && currentActiveIcon !== iconElement) {
+    currentActiveIcon.classList.replace("fa-pause", "fa-play");
+  }
+
+  if (audio.src.indexOf(srcSong) === -1) {
+    audio.src = srcSong;
+  }
+
+  audio.play();
+  isPlaying = true;
+  currentActiveIcon = iconElement;
+  
+  iconElement.classList.replace("fa-play", "fa-pause");
+  masterPlayBtn.classList.replace("fa-play", "fa-pause");
+
+  // Sync active footer track descriptors dynamically
+  const card = iconElement.closest(".card");
+  bottimg.src = card.querySelector(".card-img-top").src;
+  botthead.innerText = card.querySelector(".card-title").innerText;
+  bottpara.innerText = card.querySelector(".card-text").innerText;
+}
+
+function pauseTrack() {
+  audio.pause();
+  isPlaying = false;
+  if (currentActiveIcon) {
+    currentActiveIcon.classList.replace("fa-pause", "fa-play");
+  }
+  masterPlayBtn.classList.replace("fa-pause", "fa-play");
+}
+
+// Map events across song card icons
+songCards.forEach(icon => {
+  icon.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (isPlaying && currentActiveIcon === icon) {
+      pauseTrack();
+    } else {
+      playTrack(icon);
+    }
+  });
+});
+
+// Primary global playback control switch
+masterPlayBtn.addEventListener("click", () => {
+  if (!audio.src) return;
+  if (isPlaying) {
+    pauseTrack();
+  } else {
+    if (currentActiveIcon) playTrack(currentActiveIcon);
+  }
+});
+
+// --- AUDIO TRACK TIME & TIMESTAMPS SYNC PIPES ---
+audio.addEventListener("timeupdate", () => {
+  if (audio.duration) {
+    const progressPercentage = (audio.currentTime / audio.duration) * 100;
+    audioRange.value = progressPercentage;
+    currentTimeText.innerText = formatTime(audio.currentTime);
+  }
+});
+
+audio.addEventListener("loadedmetadata", () => {
+  totalDurationText.innerText = formatTime(audio.duration);
+});
+
+audioRange.addEventListener("input", () => {
+  if (audio.duration) {
+    audio.currentTime = (audioRange.value / 100) * audio.duration;
+  }
+});
+
+volumeControl.addEventListener("input", () => {
+  audio.volume = volumeControl.value / 100;
+});
+  </script>
 </body>
 </html>
